@@ -141,8 +141,27 @@ El gradiente de la pérdida con respecto a la preactivación ![](https://latex.c
 donde ![](https://latex.codecogs.com/gif.latex?%5Cmu%5B%5Ccdot%20%5D) denota una vez más la operación para tomar la media del minibatch. Por lo tanto, la normalización batch de media sólo tiene el efecto de centrar los gradientes que son retropropagados. Esta es una operación comparativamente barata, y la sobrecarga computacional de la normalización batch de sólo media es por lo tanto menor que para la normalización batch completa. Además, este método produce menos ruido durante el entrenamiento, y el ruido que se produce es más suave, ya que la ley de grandes números asegura que ![](https://latex.codecogs.com/gif.latex?%5Cmu%5Bt%20%5D) y ![](https://latex.codecogs.com/gif.latex?%5Cmu%5B%5Cnabla%20t%5D) están aproximadamente distribuidos normalmente.
 
 
+## DRAW: Una red neuronal recurrente para la generación de imágenes
 
+Este artículo muestra la arquitecture de red neuronal DRAW(Deep Recurrent Attentative Writer) para la generación de imágenes. DRAW imita los ojos humanos especialmente el mecanismo de atención espacial, de esta forma con una variación secuencial autoencoding que hace posible la construcción iterativa de imágenes complejas.
 
+<p align="center">
+  <img src="https://imgur.com/a/kUEXU">
+</p>
+
+### Introducción 
+
+La arquitectura DRAW(Deep Recurrent Attentative Writer) representa un cambio hacia una forma mas natural de construcción de imágenes, en que parte de una escena es creada independiente de otra.
+
+La arquitetura DRAW se basa principalmente en un par de redes neuronales recurrentes: red **encoder**  que comprime las imágenes reales presentadas durante el entrenamiento y una red **decoder** que reconstituye imágenes después de recibir códigos.
+
+### La red DRAW
+
+Encoder y decoder son redes recurrentes en DRAW, la secuencia de muestras de código es intercambiada entre ellos, el encoder es privado para la salida del decoder anterior. La salida del decoder es exitosamente agregado a la distribución que generará los datos. Una mecanismo de distracción que se actualiza dinámicamente es usada para restringir la región de entrada observada por el encoder y la región de salida modificada por el decoder. La red decide en cada iteración "donde leer" y "donde escribir" tanto como "qué escribir"
+
+#### Arquitectura de Red
+
+En general el encoder y decoder podria ser implementado por cualquier red neuronal recurrente. Pero en los experimentos se usa la arquitectura Long Short-Term Memory (LSTM) para ambos.
 
 
 
