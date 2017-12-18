@@ -146,7 +146,7 @@ donde ![](https://latex.codecogs.com/gif.latex?%5Cmu%5B%5Ccdot%20%5D) denota una
 Este artículo muestra la arquitecture de red neuronal DRAW(Deep Recurrent Attentative Writer) para la generación de imágenes. DRAW imita los ojos humanos especialmente el mecanismo de atención espacial, de esta forma con una variación secuencial autoencoding que hace posible la construcción iterativa de imágenes complejas.
 
 <p align="center">
-  <img src="https://i.imgur.com/a/kUEXU.png">
+  <img src="https://i.imgur.com/KMDLd8w.png">
 </p>
 
 ### Introducción 
