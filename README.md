@@ -157,7 +157,7 @@ La arquitetura DRAW se basa principalmente en un par de redes neuronales recurre
 
 ### La red DRAW
 
-Encoder y decoder son redes recurrentes en DRAW, la secuencia de muestras de código es intercambiada entre ellos, el encoder es privado para la salida del decoder anterior. La salida del decoder es exitosamente agregado a la distribución que generará los datos. Una mecanismo de distracción que se actualiza dinámicamente es usada para restringir la región de entrada observada por el encoder y la región de salida modificada por el decoder. La red decide en cada iteración "donde leer" y "donde escribir" tanto como "qué escribir"
+Encoder y decoder son redes recurrentes en DRAW, la secuencia de muestras de código es intercambiada entre ellos, el encoder es privado para la salida del decoder anterior. La salida del decoder es exitosamente agregado a la distribución que generará los datos. Una mecanismo de distracción que se actualiza dinámicamente es usada para restringir la región de entrada observada por el encoder y la región de salida modificada por el decoder. La red decide en cada iteración "donde leer" y "dónde escribir" tanto como "qué escribir"
 
 #### Arquitectura de Red
 
@@ -165,5 +165,7 @@ En general el encoder y decoder podria ser implementado por cualquier red neuron
 
 
 
+Las distribuciones de Bernoulli son mas comunes que que Gausianos para variables latentes en auto-encoders. Una gran ventaja de gausianos latentes es que el gradiente de una función de las muestras con respecto a los parámetros que pueden ser facilmente obtenidos usando el llamado **truco de reparametrización** 
 
+Para cada imagen `x` presentada en la red, $c_{0}, h_{0}^{enc}, h_{0}^{dec}$ son inicializados, y la red DRAW iterativamente computa la siguiente ecuacion para $t=1,  ... , T$
 
