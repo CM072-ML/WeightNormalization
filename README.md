@@ -169,3 +169,21 @@ Las distribuciones de Bernoulli son mas comunes que que Gausianos para variables
 
 Para cada imagen `x` presentada en la red, $c_{0}, h_{0}^{enc}, h_{0}^{dec}$ son inicializados, y la red DRAW iterativamente computa la siguiente ecuacion para $t=1,  ... , T$
 
+
+
+## All you need is a good Init
+
+La inicialización Layer-sequential unit-variance(LSUV) es un método para la inicialización de pesos para aprendizaje en redes profundas. El método consiste en 2 pasos: Primero, pre-inicializa pesos en cada convolucion o capa producto interno con matrices ortonormales. Segundo, procede de la primera a la última capa, normalizacndo la varianza de la salida de cada capa para ser igual a 1.
+
+Las redes profundas han demostrado resultado impresionantes en bastante problemas de vision computacional y procesamiento de lenguaje natural. La normalización por lotes (Batch Normalization) un técnica que inserta capas en la red profunda que transforma la salida para el lote a ser media cero varianza 1 . Batch Normalization agrega un 30 % de sobrecarga computacional sobre cada iteración.
+
+La inicializacion de camino aleatorio mantiene constante el registro de las normas de los errores en la retro propagación.
+
+
+El algoritmo LSUV se muestra debajo : 
+
+<p align="center">
+  <img src="https://i.imgur.com/w7vwY32.png">
+</p>
+
+
